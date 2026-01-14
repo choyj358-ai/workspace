@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이력서 사이트</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page__container">
+      <!-- 헤더/네비게이션 영역 -->
+      <header class="header__section">
+        <div class="header__content">
+          <div class="header__logo">
+            <a href="#profile" class="header__logo__link">이력서</a>
+          </div>
+          <nav class="header__nav">
+            <a href="#profile" class="nav__item">정보</a>
+            <a href="#skills" class="nav__item">기술</a>
+            <a href="#certificates" class="nav__item">자격증</a>
+            <a href="#portfolio" class="nav__item">포트폴리오</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- 내 정보 표시 공간 -->
+      <section id="profile" class="profile__section">
+        <div class="profile__content">
+          <div class="profile__image">
+            <img
+              src="https://i.pravatar.cc/300?img=12"
+              alt="프로필 사진"
+              class="profile__image__img"
+            />
+          </div>
+          <div class="profile__info">
+            <h1 class="profile__name">조유지</h1>
+            <h2 class="profile__role">풀스택 개발자</h2>
+            <p class="profile__intro">
+              마이크로서비스 아키텍처와 AI 기술을 활용한 개발에 관심이 많은
+              개발자입니다. 플러터를 활용한 크로스 플랫폼 앱 개발과 MVVM
+              아키텍처 구현을 전문으로 합니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 내 좌우명 표시 공간 -->
+      <section class="motto__section">
+        <div class="motto__content">
+          <div class="motto__icon">💡</div>
+          <blockquote class="motto__text">
+            "코드는 단순히 작동하는 것이 아니라, 유지보수 가능하고 확장 가능해야
+            한다."
+          </blockquote>
+          <p class="motto__subtext">
+            깔끔한 코드와 아키텍처를 통해 지속 가능한 소프트웨어를 만드는 것이
+            제 신념입니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 내 기술 스킬 공간 -->
+      <section id="skills" class="skills__section">
+        <div class="skills__content">
+          <h2 class="skills__header">기술 스킬</h2>
+          <div class="skills__categories">
+            <!-- Backend & Microservices -->
+            <div class="skill__category">
+              <h3 class="skill__category__title">Backend & Microservices</h3>
+              <div class="skill__category__items">
+                <div class="skill__item skill__item--highlight">
+                  마이크로서비스 아키텍처
+                </div>
+                <div class="skill__item">Spring Boot</div>
+                <div class="skill__item">Node.js</div>
+                <div class="skill__item">Docker</div>
+                <div class="skill__item">Kubernetes</div>
+              </div>
+            </div>
+
+            <!-- Mobile Development -->
+            <div class="skill__category">
+              <h3 class="skill__category__title">Mobile Development</h3>
+              <div class="skill__category__items">
+                <div class="skill__item skill__item--highlight">Flutter</div>
+                <div class="skill__item skill__item--highlight">
+                  MVVM 아키텍처
+                </div>
+                <div class="skill__item">Dart</div>
+                <div class="skill__item">Android</div>
+                <div class="skill__item">iOS</div>
+              </div>
+            </div>
+
+            <!-- AI & Machine Learning -->
+            <div class="skill__category">
+              <h3 class="skill__category__title">AI & Machine Learning</h3>
+              <div class="skill__category__items">
+                <div class="skill__item skill__item--highlight">
+                  AI 활용 개발
+                </div>
+                <div class="skill__item">Python</div>
+                <div class="skill__item">TensorFlow</div>
+                <div class="skill__item">OpenAI API</div>
+                <div class="skill__item">LangChain</div>
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="skill__category">
+              <h3 class="skill__category__title">Frontend</h3>
+              <div class="skill__category__items">
+                <div class="skill__item">HTML/CSS</div>
+                <div class="skill__item">JavaScript</div>
+                <div class="skill__item">React</div>
+                <div class="skill__item">Vue.js</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 내 자격증 공간 -->
+      <section id="certificates" class="certificates__section">
+        <div class="certificates__content">
+          <h2 class="certificates__header">자격증</h2>
+          <div class="certificates__grid">
+            <div class="certificate__item">
+              <div class="certificate__item__image">
+                <div class="certificate__item__image__emoji">👤</div>
+              </div>
+              <div class="certificate__item__info">
+                <h3 class="certificate__item__name">정보처리기사</h3>
+                <div class="certificate__item__date">2023.05</div>
+                <div class="certificate__item__issuer">한국산업인력공단</div>
+              </div>
+            </div>
+            <div class="certificate__item">
+              <div class="certificate__item__image">
+                <div class="certificate__item__image__emoji">👤</div>
+              </div>
+              <div class="certificate__item__info">
+                <h3 class="certificate__item__name">
+                  AWS Certified Solutions Architect
+                </h3>
+                <div class="certificate__item__date">2024.03</div>
+                <div class="certificate__item__issuer">Amazon Web Services</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 포트폴리오 공간 -->
+      <section id="portfolio" class="portfolio__section">
+        <div class="portfolio__content">
+          <h2 class="portfolio__header">포트폴리오</h2>
+          <div class="portfolio__grid">
+            <!-- 프로젝트 1: 마이크로서비스 아키텍처 -->
+            <div class="portfolio__item portfolio__item--highlight">
+              <div class="portfolio__item__image">
+                <div class="portfolio__item__image__placeholder">
+                  프로젝트 이미지
+                </div>
+              </div>
+              <div class="portfolio__item__content">
+                <h3 class="portfolio__item__title">
+                  마이크로서비스 전자상거래 플랫폼
+                </h3>
+                <p class="portfolio__item__description">
+                  Spring Boot와 Docker를 활용한 마이크로서비스 아키텍처 기반
+                  전자상거래 시스템. 각 서비스를 독립적으로 배포하고 확장할 수
+                  있는 구조로 설계했습니다.
+                </p>
+                <div class="portfolio__item__tech">
+                  <span class="tech__tag">Spring Boot</span>
+                  <span class="tech__tag">Docker</span>
+                  <span class="tech__tag">Kubernetes</span>
+                  <span class="tech__tag">마이크로서비스</span>
+                </div>
+                <div class="portfolio__item__links">
+                  <div class="portfolio__link">GitHub</div>
+                  <div class="portfolio__link">데모</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 프로젝트 2: AI 활용 개발 -->
+            <div class="portfolio__item portfolio__item--highlight">
+              <div class="portfolio__item__image">
+                <div class="portfolio__item__image__placeholder">
+                  프로젝트 이미지
+                </div>
+              </div>
+              <div class="portfolio__item__content">
+                <h3 class="portfolio__item__title">AI 기반 챗봇 서비스</h3>
+                <p class="portfolio__item__description">
+                  OpenAI API와 LangChain을 활용한 지능형 챗봇 서비스. 자연어
+                  처리와 컨텍스트 이해 기능을 구현했습니다.
+                </p>
+                <div class="portfolio__item__tech">
+                  <span class="tech__tag">Python</span>
+                  <span class="tech__tag">OpenAI API</span>
+                  <span class="tech__tag">LangChain</span>
+                  <span class="tech__tag">AI</span>
+                </div>
+                <div class="portfolio__item__links">
+                  <div class="portfolio__link">GitHub</div>
+                  <div class="portfolio__link">데모</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 프로젝트 3: Flutter & MVVM -->
+            <div class="portfolio__item portfolio__item--highlight">
+              <div class="portfolio__item__image">
+                <div class="portfolio__item__image__placeholder">
+                  프로젝트 이미지
+                </div>
+              </div>
+              <div class="portfolio__item__content">
+                <h3 class="portfolio__item__title">
+                  Flutter 기반 할일 관리 앱
+                </h3>
+                <p class="portfolio__item__description">
+                  MVVM 아키텍처 패턴을 적용한 크로스 플랫폼 모바일 앱. Flutter와
+                  Dart를 사용하여 iOS와 Android에서 동시에 동작합니다.
+                </p>
+                <div class="portfolio__item__tech">
+                  <span class="tech__tag">Flutter</span>
+                  <span class="tech__tag">Dart</span>
+                  <span class="tech__tag">MVVM</span>
+                  <span class="tech__tag">모바일</span>
+                </div>
+                <div class="portfolio__item__links">
+                  <div class="portfolio__link">GitHub</div>
+                  <div class="portfolio__link">데모</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 연락처/푸터 영역 -->
+      <footer class="footer__section">
+        <div class="footer__content">
+          <div class="footer__contact">
+            <div class="footer__contact__item">
+              <strong>이메일:</strong> example@email.com
+            </div>
+            <div class="footer__contact__item">
+              <strong>전화:</strong> 010-1234-5678
+            </div>
+            <div class="footer__contact__item">
+              <strong>GitHub:</strong> github.com/username
+            </div>
+          </div>
+          <div class="footer__copyright">
+            © 2024 홍길동. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

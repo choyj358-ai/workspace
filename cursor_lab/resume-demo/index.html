@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이력서 - Your Name</title>
+    <meta
+      name="description"
+      content="Your Name의 이력서 페이지입니다. 경력, 기술, 프로젝트, 연락처 정보를 한눈에 확인하세요."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header-main">
+          <div>
+            <h1 class="name">Your Name</h1>
+            <p class="role">직무 / 포지션 (예: 프론트엔드 개발자)</p>
+          </div>
+          <button class="theme-toggle" type="button" aria-label="테마 전환">
+            <span class="theme-toggle-icon">🌙</span>
+          </button>
+        </div>
+        <div class="header-meta">
+          <div class="meta-group">
+            <span class="meta-label">이메일</span>
+            <a href="mailto:you@example.com" class="meta-value">you@example.com</a>
+          </div>
+          <div class="meta-group">
+            <span class="meta-label">전화</span>
+            <span class="meta-value">010-0000-0000</span>
+          </div>
+          <div class="meta-group">
+            <span class="meta-label">GitHub</span>
+            <a href="https://github.com/your-id" target="_blank" class="meta-value"
+              >github.com/your-id</a
+            >
+          </div>
+          <div class="meta-group">
+            <span class="meta-label">위치</span>
+            <span class="meta-value">Seoul, Republic of Korea</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="card">
+          <h2 class="section-title">소개</h2>
+          <p class="section-text">
+            2~3줄 정도로 본인을 요약해서 적어주세요. 예: 사용자 경험을 중시하는 프론트엔드
+            개발자로서, React와 TypeScript를 중심으로 웹 서비스를 개발해 왔습니다. 비즈니스
+            목표와 사용성 사이의 균형을 맞추는 것에 관심이 많습니다.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">핵심 역량</h2>
+          <ul class="chips">
+            <li class="chip">JavaScript / TypeScript</li>
+            <li class="chip">React / Next.js</li>
+            <li class="chip">UI/UX 협업</li>
+            <li class="chip">코드 리뷰 & 문서화</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">경력</h2>
+
+          <article class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">회사명</h3>
+                <p class="item-subtitle">직무 / 팀명</p>
+              </div>
+              <div class="item-meta">
+                <span>2022.01 - 재직 중</span>
+                <span class="dot">·</span>
+                <span>서울</span>
+              </div>
+            </div>
+            <ul class="item-list">
+              <li>주요 업무나 성과를 한 줄로 정리합니다. (수치, 임팩트 중심)</li>
+              <li>예: 신규 대시보드 구축으로 MAU 20% 향상에 기여</li>
+              <li>예: 디자인 시스템 정비 및 컴포넌트화로 개발 효율 개선</li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">이전 회사명</h3>
+                <p class="item-subtitle">직무 / 팀명</p>
+              </div>
+              <div class="item-meta">
+                <span>2020.01 - 2021.12</span>
+                <span class="dot">·</span>
+                <span>서울</span>
+              </div>
+            </div>
+            <ul class="item-list">
+              <li>주요 프로젝트 또는 책임 업무를 요약합니다.</li>
+              <li>협업, 리딩 경험이 있다면 명시합니다.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="card grid-two">
+          <div>
+            <h2 class="section-title">기술 스택</h2>
+            <div class="stack-group">
+              <h3 class="stack-title">Frontend</h3>
+              <p class="stack-text">HTML, CSS, JavaScript, TypeScript, React, Next.js</p>
+            </div>
+            <div class="stack-group">
+              <h3 class="stack-title">Backend & 기타</h3>
+              <p class="stack-text">Node.js, Express, REST API, Git, GitHub Actions</p>
+            </div>
+            <div class="stack-group">
+              <h3 class="stack-title">협업 도구</h3>
+              <p class="stack-text">Jira, Notion, Figma, Slack</p>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="section-title">학력</h2>
+            <article class="item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">학교명</h3>
+                  <p class="item-subtitle">전공 / 학위</p>
+                </div>
+                <div class="item-meta">
+                  <span>2016.03 - 2020.02</span>
+                </div>
+              </div>
+              <ul class="item-list">
+                <li>전공 관련 활동이나 성과가 있다면 한 줄씩 정리합니다.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">프로젝트</h2>
+
+          <article class="item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">프로젝트 이름</h3>
+                <p class="item-subtitle">한 줄 설명 (예: 개인 사이드 프로젝트 / 토이 프로젝트)</p>
+              </div>
+              <div class="item-meta">
+                <a
+                  href="https://github.com/your-id/your-project"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+                <span class="dot">·</span>
+                <a href="https://your-project-demo.com" target="_blank" class="link">Demo</a>
+              </div>
+            </div>
+            <ul class="item-list">
+              <li>무엇을 만든 프로젝트인지 (문제/목표) 중심으로 설명합니다.</li>
+              <li>어떤 기술을 사용했고, 본인이 맡은 역할은 무엇이었는지 적습니다.</li>
+              <li>수치나 결과가 있다면 함께 적어 임팩트를 강조합니다.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">기타</h2>
+          <ul class="item-list">
+            <li>자격증, 수상 경력, 대외 활동, 발표 경험 등을 적어주세요.</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>© Your Name</span>
+        <span class="dot">·</span>
+        <span>마지막 업데이트: 2026-01-08</span>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
