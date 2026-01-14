@@ -19,7 +19,7 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("HelloWorld");
-        resp.setHeader("Content-Type", "text/plain");
+        resp.setHeader("Content-Type", "text/html");
         PrintWriter out = resp.getWriter();
         out.println("<h1>Goodbye</h1>");
     }
