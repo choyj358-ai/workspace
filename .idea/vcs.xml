@@ -2,15 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/css_lab" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/git_lab/ex01" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/html_lab" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/java_lab/java-db-shop" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/java_lab/java-network-study" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/java_lab/selfstudy" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/java_lab/store" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/java_lab/study" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/javascript_lab" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/web_history_lab" vcs="Git" />
+  </component>
+  <component name="VcsProjectSettings">
+    <option name="detectVcsMappingsAutomatically" value="false" />
   </component>
 </project>

@@ -10,13 +10,7 @@ public class ProductService implements ProductServiceInterface{
 
     // 메모리 DB 역할
     private List<Product> products = new ArrayList<>();
-    private int num = 1; // id 자동 증가용
 
-    // 서버 시작 시 기본 상품 미리 넣어두기
-    public ProductService() {
-        products.add(new Product(num++, "바나나", 3000, 10));
-        products.add(new Product(num++, "사과", 2000, 5));
-    }
 
     @Override
     public void 상품등록(String name, int price, int qty) {
