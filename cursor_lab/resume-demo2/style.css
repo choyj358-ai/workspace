@@ -1,0 +1,136 @@
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #111111;
+  --line: #000000;
+  --accent: #0033cc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+  background: var(--bg);
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+}
+
+.section-title {
+  font-weight: bold;
+  background: var(--accent);
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.04em;
+  padding: 6px 10px;
+}
+
+.section-content {
+  display: grid;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+/* 헤더 / 히어로 */
+.header-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+}
+
+.hero-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.hero-role {
+  font-weight: bold;
+}
+
+.hero-tagline {
+  margin-top: 4px;
+}
+
+.hero-keywords {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 6px;
+}
+
+.keyword {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.about-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.motto-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.certificates-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.portfolio-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.portfolio-card {
+  display: grid;
+  gap: 4px;
+  grid-template-rows: repeat(5, auto);
+  background: var(--bg);
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+.footer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .page-grid {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .section-title {
+    font-size: 0.95rem;
+  }
+
+  .hero-name {
+    font-size: 1.1rem;
+  }
+}
+

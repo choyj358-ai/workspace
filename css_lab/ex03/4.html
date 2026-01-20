@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      .head {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+      .logo_box {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+      }
+      .logo {
+        font-size: 50px;
+      }
+      .title {
+        color: gray;
+        text-decoration: underline;
+      }
+      .content {
+        font-size: 15px;
+      }
+      .grid_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .grid_container div {
+        height: 250px;
+      }
+      .a {
+        grid-row: 1/2 span;
+        grid-row: 1/1 span;
+        background-color: #d5ecf4;
+      }
+      .b {
+        background-image: url(./image/b.png);
+        background-size: 100% 100%;
+
+        grid-column: 2/4;
+        grid-row: 1/2 span;
+      }
+      .c {
+        background-color: #e5efd9;
+        grid-column: 1/1 span;
+        grid-row: 3/1 span;
+      }
+      .d {
+        background-color: #ebebeb;
+        grid-column: 1/1 span;
+        grid-row: 4/1 span;
+      }
+      .e {
+        background-image: url();
+        grid-column: 2/1 span;
+        grid-row: 3/2 span;
+      }
+      .f {
+        background-color: #fcf8c0;
+        grid-column: 3/1 span;
+        grid-row: 3/1 span;
+      }
+      main {
+        display: grid;
+        justify-content: center;
+      }
+      section {
+        width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="head">
+          <div class="logo_box">
+            <div class="logo">🐼</div>
+          </div>
+          <div>
+            <div class="title">INFORMATION</div>
+            <div class="content">About</div>
+            <div class="content">News</div>
+            <div class="content">Press</div>
+          </div>
+          <div>
+            <div class="title">PORTFOLIO</div>
+            <div class="content">Products</div>
+            <div class="content">Graphics</div>
+            <div class="content">Sounds</div>
+          </div>
+          <div>
+            <div class="title">NETWORK</div>
+            <div class="content">Facebook</div>
+            <div class="content">Instagram</div>
+            <div class="content">Youtube</div>
+          </div>
+        </div>
+        <br />
+        <div class="grid_container">
+          <div class="a">a</div>
+          <div class="b">b 이미지1</div>
+          <div class="c">c</div>
+          <div class="d">d</div>
+          <div class="e">e 이미지2</div>
+          <div class="f">f</div>
+          <div>이미지3</div>
+          <div>핑크색</div>
+          <div>이미지4</div>
+          <div>이미지5</div>
+          <div>이미지6</div>
+          <div>이미지7</div>
+          <div>연두</div>
+          <div>이미지8</div>
+          <div>노랑</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

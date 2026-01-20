@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid_title {
+        font-size: 25px;
+        font-weight: 800;
+        text-align: center;
+        color: rgb(253, 123, 90);
+      }
+      .grid_content {
+        text-align: center;
+      }
+      .grid_image {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 200px;
+        column-gap: 10px;
+        text-align: center;
+      }
+      .grid_button {
+        display: grid;
+        text-align: center;
+        justify-content: center;
+      }
+      .button_box {
+        border: 1px solid black;
+        background-color: rgb(253, 123, 90);
+        width: 200px;
+        color: white;
+        font-weight: 600;
+        border-radius: 5px;
+      }
+      .back_image {
+        background-size: 100% 100%;
+        background-image: url(./image/london.jpg);
+        object-fit: cover;
+      }
+      .country {
+        display: grid;
+        align-items: center;
+        color: white;
+        font-weight: 700;
+      }
+      .mt10 {
+        margin-bottom: 10px;
+      }
+      main {
+        display: grid;
+        justify-content: center;
+      }
+      section {
+        width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div>
+          <div class="grid_title">Meet Guidebooks</div>
+          <div class="grid_content mt10">
+            Discover hundreds of local spots recommended by Airbnb hosts
+          </div>
+          <div class="grid_image">
+            <div class="back_image country">San Francisco</div>
+            <div class="back_image country">New York</div>
+            <div class="back_image country">London</div>
+          </div>
+          <br />
+          <div class="grid_button">
+            <div class="button_box">See All Guidebooks</div>
+          </div>
+        </div>
+      </section>
+      <br />
+      <section>
+        <div>
+          <div class="grid_title">Just for the weekend</div>
+          <div class="grid_content mt10">
+            Discover new, inspiring places close to home.
+          </div>
+          <div class="grid_image">
+            <div class="back_image country">Napa</div>
+            <div class="back_image country">Sonoma</div>
+            <div class="back_image country">San Francisco</div>
+          </div>
+          <br />
+          <div class="grid_button">
+            <div class="button_box">See All Destinations</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

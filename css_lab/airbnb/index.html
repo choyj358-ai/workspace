@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        border: 1px solid black;
+        padding: 5px;
+      }
+      header {
+        height: 820px;
+        background-image: url(./static/images/background.jpg);
+        background-size: cover;
+      }
+      nav {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: space-between;
+      }
+      .logo {
+        display: grid;
+        align-items: center;
+        color: white;
+        font-size: 35px;
+      }
+      .nav_body {
+        padding: 30px 0px;
+      }
+      .menus {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        color: white;
+        column-gap: 10px;
+      }
+      .search_box {
+        background-color: white;
+        border-radius: 10px;
+        width: 500px;
+        position: relative;
+        left: 50px;
+        padding: 20px;
+      }
+      .input_box {
+        display: grid;
+        grid-template-columns: auto;
+      }
+      .search1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .search2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .search3 {
+        display: grid;
+        justify-content: end;
+      }
+      main {
+        padding: 0px 50px;
+      }
+      .around_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      .around_item {
+        display: grid;
+        grid-template-columns: 100px auto;
+      }
+      .around_text {
+        display: grid;
+        align-items: center;
+      }
+      .cho_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+      .home_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      .search_title {
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .search_subtitle {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .search_box input,
+      select {
+        height: 40px;
+        color: grey;
+        border: 1px solid grey;
+        border-radius: 3px;
+      }
+      .search3 button {
+        background-color: #ff5a5f;
+        color: white;
+        width: 70px;
+        height: 45px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+      }
+      .main_title {
+        font-size: 25px;
+        font-weight: 600;
+        color: rgb(63, 63, 63);
+        margin: 0 0 20px 0;
+      }
+      .around_item {
+        height: 100px;
+      }
+      .img_item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .around_pic {
+        height: 300px;
+      }
+      .around_pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cho_item {
+        height: 250px;
+        column-gap: 10px;
+        position: relative;
+      }
+      .ghost {
+        color: gold;
+        font-size: 20px;
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <svg
+            viewBox="0 0 1000 1000"
+            role="presentation"
+            aria-hidden="true"
+            focusable="false"
+            style="
+              height: 1em;
+              width: 1em;
+              display: inline-block;
+              fill: currentcolor;
+            "
+          >
+                                
+            <path
+              d="m499.3 736.7c-51-64-81-120.1-91-168.1-10-39-6-70 11-93 18-27 45-40 80-40s62 13 80 40c17 23 21 54 11 93-11 49-41 105-91 168.1zm362.2 43c-7 47-39 86-83 105-85 37-169.1-22-241.1-102 119.1-149.1 141.1-265.1 90-340.2-30-43-73-64-128.1-64-111 0-172.1 94-148.1 203.1 14 59 51 126.1 110 201.1-37 41-72 70-103 88-24 13-47 21-69 23-101 15-180.1-83-144.1-184.1 5-13 15-37 32-74l1-2c55-120.1 122.1-256.1 199.1-407.2l2-5 22-42c17-31 24-45 51-62 13-8 29-12 47-12 36 0 64 21 76 38 6 9 13 21 22 36l21 41 3 6c77 151.1 144.1 287.1 199.1 407.2l1 1 20 46 12 29c9.2 23.1 11.2 46.1 8.2 70.1zm46-90.1c-7-22-19-48-34-79v-1c-71-151.1-137.1-287.1-200.1-409.2l-4-6c-45-92-77-147.1-170.1-147.1-92 0-131.1 64-171.1 147.1l-3 6c-63 122.1-129.1 258.1-200.1 409.2v2l-21 46c-8 19-12 29-13 32-51 140.1 54 263.1 181.1 263.1 1 0 5 0 10-1h14c66-8 134.1-50 203.1-125.1 69 75 137.1 117.1 203.1 125.1h14c5 1 9 1 10 1 127.1.1 232.1-123 181.1-263.1z"
+            >
+                                  
+            </path>
+                            
+          </svg>
+        </div>
+        <div class="menus">
+          <div>호스트가 되어보세요</div>
+          <div>도움말</div>
+          <div>회원가입</div>
+          <div>로그인</div>
+        </div>
+      </nav>
+      <div class="nav_body">
+        <div class="search_box">
+          <div class="search_title">
+            특색 있는 숙소와 즐길<br />거리를 예약하세요.
+          </div>
+          <div class="search_subtitle">목적지</div>
+          <!-- 폼 태그로 묶어야 하는 자리 -->
+          <form action="#">
+            <div class="input_box">
+              <input type="text" placeholder="모든 위치" />
+            </div>
+            <div class="search1">
+              <div class="search_subtitle">체크인</div>
+              <div class="search_subtitle">체크아웃</div>
+            </div>
+            <div class="search2">
+              <div class="input_box"><input type="date" /></div>
+              <div class="input_box"><input type="date" /></div>
+            </div>
+            <div class="search_subtitle">인원</div>
+            <div class="input_box">
+              <select>
+                <option>인원</option>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <div class="search3">
+              <button type="submit">검색</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="around_box">
+        <div class="main_title">에어비앤비 둘러보기</div>
+        <div class="around_list">
+          <div class="around_item">
+            <div class="img_item">
+              <img src="./static/images/card1.jpg" />
+            </div>
+            <div class="around_text">숙소 및 부티크 호텔</div>
+          </div>
+          <div class="around_item">
+            <div class="img_item">
+              <img src="./static/images/card2.jpg" />
+            </div>
+            <div class="around_text">트립</div>
+          </div>
+          <div class="around_item">
+            <div class="img_item">
+              <img src="./static/images/card3.jpg" />
+            </div>
+            <div class="around_text">어드벤처</div>
+          </div>
+          <div class="around_item">
+            <div class="img_item">
+              <img src="./static/images/card4.jpg" />
+            </div>
+            <div class="around_text">레스토랑</div>
+          </div>
+        </div>
+        <div class="around_pic">
+          <img src="./static/images/ad1.jpg" />
+        </div>
+      </div>
+      <div class="cho_box">
+        <div class="main_title">추천 여행지</div>
+        <div class="cho_list">
+          <div class="cho_item">
+            <div class="ghost">파리</div>
+            <img src="./static/images/choo1.png" />
+          </div>
+          <div class="cho_item">
+            <img src="./static/images/choo2.png" />
+          </div>
+          <div class="cho_item">
+            <img src="./static/images/choo3.png" />
+          </div>
+          <div class="cho_item">
+            <img src="./static/images/choo4.png" />
+          </div>
+          <div class="cho_item">
+            <img src="./static/images/choo5.png" />
+          </div>
+        </div>
+      </div>
+      <div class="ad_box">
+        <div class="main_title">에어비앤비 플러스를 만나보세요!</div>
+        <div>퀄리티와 인테리어 디자인이 검증된 숙소 셀렉션</div>
+        <div>그림</div>
+      </div>
+      <div class="home_box">
+        <div class="main_title">전 세계 숙소</div>
+        <div class="home_list">
+          <div class="home_item">
+            <div>그림1</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림2</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림3</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림4</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림5</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림6</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림7</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+          <div class="home_item">
+            <div>그림8</div>
+            <div>
+              <div>오두막</div>
+              <div>BALIAN TREEHOUSE w beautiful pool</div>
+              <div>
+                <span>★★★★★</span>
+                <span>185 슈퍼호스트</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

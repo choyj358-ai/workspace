@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="post-1"></div>
+    </div>
+
+    <script>
+      async function download() {
+        let res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+        console.log(res);
+
+        const contentType = res.headers.get("content-type");
+        console.log(contentType);
+
+        let post = await res.json(); // json문자열을 javascript object로 변환
+        console.log(post);
+
+        let dom = document.querySelector("#post-1");
+        dom.innerHTML = `
+            userId : ${post.userId} <br>
+            id : ${post.id} <br>
+            title : ${post.title} <br>
+            body : ${post.body} <br>
+        `;
+      }
+
+      download();
+
+      // while (true) {}
+    </script>
+  </body>
+</html>

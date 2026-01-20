@@ -1,0 +1,11 @@
+{
+  "name": "resume-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "단일 페이지 이력서 웹사이트",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
+
+

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        background-color: #0f0f0f;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background-color: #212121;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        z-index: 1000;
+        border-bottom: 1px solid #303030;
+      }
+
+      .menu-icon {
+        color: #ffffff;
+        font-size: 24px;
+        margin-right: 16px;
+        cursor: pointer;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 40px;
+      }
+
+      .logo-icon {
+        color: #ff0000;
+        font-size: 24px;
+        margin-right: 4px;
+      }
+
+      .search-container {
+        flex: 1;
+        max-width: 640px;
+        display: flex;
+        margin: 0 40px;
+      }
+
+      .search-input {
+        flex: 1;
+        height: 40px;
+        background-color: #121212;
+        border: 1px solid #303030;
+        border-right: none;
+        padding: 0 16px;
+        color: #ffffff;
+        font-size: 16px;
+        border-radius: 40px 0 0 40px;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #1c62b9;
+      }
+
+      .search-button {
+        width: 64px;
+        height: 40px;
+        background-color: #303030;
+        border: 1px solid #303030;
+        border-left: none;
+        border-radius: 0 40px 40px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+      }
+
+      .search-button:hover {
+        background-color: #404040;
+      }
+
+      .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .header-icon {
+        color: #ffffff;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .profile-container {
+        position: relative;
+      }
+
+      .profile-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      .profile-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        background-color: #282828;
+        border-radius: 12px;
+        min-width: 300px;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+        z-index: 1001;
+        overflow: hidden;
+      }
+
+      .profile-dropdown.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-header {
+        padding: 16px;
+        border-bottom: 1px solid #303030;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .dropdown-header-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .dropdown-header-info {
+        flex: 1;
+      }
+
+      .dropdown-header-name {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .dropdown-header-email {
+        color: #aaaaaa;
+        font-size: 14px;
+      }
+
+      .dropdown-menu {
+        padding: 8px 0;
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 14px;
+      }
+
+      .dropdown-item:hover {
+        background-color: #303030;
+      }
+
+      .dropdown-item-icon {
+        margin-right: 16px;
+        font-size: 20px;
+        width: 24px;
+        text-align: center;
+      }
+
+      .dropdown-divider {
+        height: 1px;
+        background-color: #303030;
+        margin: 8px 0;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 56px;
+        width: 240px;
+        height: calc(100vh - 56px);
+        background-color: #212121;
+        overflow-y: auto;
+        padding-top: 12px;
+      }
+
+      .sidebar-section {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #303030;
+      }
+
+      .sidebar-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 24px;
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .sidebar-item:hover {
+        background-color: #303030;
+      }
+
+      .sidebar-item.active {
+        background-color: #303030;
+        font-weight: 500;
+      }
+
+      .sidebar-icon {
+        margin-right: 24px;
+        font-size: 20px;
+        width: 24px;
+        text-align: center;
+      }
+
+      .sidebar-title {
+        padding: 8px 24px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #aaaaaa;
+        text-transform: uppercase;
+      }
+
+      /* Main Content */
+      .main-content {
+        margin-left: 240px;
+        margin-top: 56px;
+        padding: 24px;
+        background-color: #0f0f0f;
+        min-height: calc(100vh - 56px);
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px 16px;
+      }
+
+      .video-card {
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .video-card:hover {
+        transform: scale(1.02);
+      }
+
+      .thumbnail {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .thumbnail::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.8) 0%,
+          rgba(118, 75, 162, 0.8) 100%
+        );
+      }
+
+      .duration {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #ffffff;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .video-info {
+        display: flex;
+        gap: 12px;
+      }
+
+      .channel-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        flex-shrink: 0;
+      }
+
+      .video-details {
+        flex: 1;
+      }
+
+      .video-title {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.4;
+      }
+
+      .channel-name {
+        color: #aaaaaa;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .video-meta {
+        color: #aaaaaa;
+        font-size: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 72px;
+        }
+
+        .sidebar-item span:not(.sidebar-icon),
+        .sidebar-title {
+          display: none;
+        }
+
+        .main-content {
+          margin-left: 72px;
+        }
+
+        .video-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .search-container {
+          display: none;
+        }
+
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="menu-icon">☰</div>
+      <a href="#" class="logo">
+        <span class="logo-icon">▶</span>
+        YouTube
+      </a>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="검색" />
+        <button class="search-button">🔍</button>
+      </div>
+      <div class="header-icons">
+        <div class="header-icon">📹</div>
+        <div class="header-icon">🔔</div>
+        <div class="profile-container">
+          <div class="profile-icon" id="profileIcon">A</div>
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="dropdown-header">
+              <div class="dropdown-header-avatar">A</div>
+              <div class="dropdown-header-info">
+                <div class="dropdown-header-name">사용자 계정</div>
+                <div class="dropdown-header-email">user@example.com</div>
+              </div>
+            </div>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">👤</span>
+                <span>내 채널</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">💳</span>
+                <span>결제 및 멤버십</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">🎬</span>
+                <span>YouTube Studio</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">👥</span>
+                <span>계정 전환</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">⚙️</span>
+                <span>설정</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">❓</span>
+                <span>도움말</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">💬</span>
+                <span>의견 보내기</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon">🚪</span>
+                <span>로그아웃</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <a href="#" class="sidebar-item active">
+          <span class="sidebar-icon">🏠</span>
+          <span>홈</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">🔥</span>
+          <span>Shorts</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">📺</span>
+          <span>구독</span>
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">📚</span>
+          <span>보관함</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">🕐</span>
+          <span>시청 기록</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">▶️</span>
+          <span>내 동영상</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">👍</span>
+          <span>좋아요 표시한 동영상</span>
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">탐색</div>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">📈</span>
+          <span>인기</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">🎵</span>
+          <span>음악</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">🎮</span>
+          <span>게임</span>
+        </a>
+        <a href="#" class="sidebar-item">
+          <span class="sidebar-icon">⚽</span>
+          <span>스포츠</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="video-grid">
+        <!-- Video Cards -->
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">10:24</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">
+                재미있는 코딩 튜토리얼 - HTML과 CSS 기초부터 배우기
+              </div>
+              <div class="channel-name">코딩 채널</div>
+              <div class="video-meta">조회수 12만회 • 2일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">8:45</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">
+                JavaScript 완벽 가이드 - 초보자를 위한 강좌
+              </div>
+              <div class="channel-name">프로그래밍 TV</div>
+              <div class="video-meta">조회수 45만회 • 5일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">15:32</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">웹 개발 프로젝트 만들기 - 실전 예제</div>
+              <div class="channel-name">개발자의 하루</div>
+              <div class="video-meta">조회수 89만회 • 1주 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">12:18</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">React로 만드는 모던 웹 애플리케이션</div>
+              <div class="channel-name">프론트엔드 마스터</div>
+              <div class="video-meta">조회수 234만회 • 3일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">20:05</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">
+                백엔드 개발 시작하기 - Node.js와 Express
+              </div>
+              <div class="channel-name">백엔드 개발자</div>
+              <div class="video-meta">조회수 67만회 • 6일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">9:42</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">데이터베이스 설계 완벽 가이드</div>
+              <div class="channel-name">데이터 사이언스</div>
+              <div class="video-meta">조회수 156만회 • 4일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">14:27</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">
+                Git과 GitHub 사용법 - 협업 개발 기초
+              </div>
+              <div class="channel-name">개발 꿀팁</div>
+              <div class="video-meta">조회수 98만회 • 1주 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">11:33</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">모바일 반응형 웹 디자인 만들기</div>
+              <div class="channel-name">웹 디자인 스쿨</div>
+              <div class="video-meta">조회수 312만회 • 2일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">16:51</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">Python으로 시작하는 인공지능 개발</div>
+              <div class="channel-name">AI 랩</div>
+              <div class="video-meta">조회수 445만회 • 5일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">7:29</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">
+                코딩 인터뷰 준비하기 - 알고리즘 문제 해결
+              </div>
+              <div class="channel-name">취업 성공기</div>
+              <div class="video-meta">조회수 278만회 • 3일 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">13:16</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">Docker와 컨테이너 기초부터 배우기</div>
+              <div class="channel-name">DevOps 가이드</div>
+              <div class="video-meta">조회수 189만회 • 1주 전</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="thumbnail">
+            <span class="duration">18:04</span>
+          </div>
+          <div class="video-info">
+            <div class="channel-avatar"></div>
+            <div class="video-details">
+              <div class="video-title">풀스택 웹 개발자 되기 - 로드맵 공유</div>
+              <div class="channel-name">개발자 성장기</div>
+              <div class="video-meta">조회수 523만회 • 4일 전</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const profileIcon = document.getElementById("profileIcon");
+      const profileDropdown = document.getElementById("profileDropdown");
+
+      // 프로필 아이콘 클릭 시 드롭다운 토글
+      profileIcon.addEventListener("click", function (e) {
+        e.stopPropagation();
+        profileDropdown.classList.toggle("show");
+      });
+
+      // 외부 클릭 시 드롭다운 닫기
+      document.addEventListener("click", function (e) {
+        if (
+          !profileIcon.contains(e.target) &&
+          !profileDropdown.contains(e.target)
+        ) {
+          profileDropdown.classList.remove("show");
+        }
+      });
+
+      // 드롭다운 메뉴 항목 클릭 시 드롭다운 닫기
+      const dropdownItems = profileDropdown.querySelectorAll(".dropdown-item");
+      dropdownItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          profileDropdown.classList.remove("show");
+        });
+      });
+    </script>
+  </body>
+</html>

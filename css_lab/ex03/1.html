@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .title {
+        font-size: 25px;
+        font-weight: 700;
+      }
+
+      .grid_box {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        column-gap: 10px;
+      }
+      .grid_item {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 5px 5px 0px 0px gray;
+      }
+      .content {
+        display: grid;
+        align-items: center;
+        padding: 5px;
+      }
+      .grid_item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .mt5 {
+        margin-top: 5px;
+      }
+      .mt10 {
+        margin-bottom: 10px;
+      }
+      main {
+        display: grid;
+        justify-content: center;
+      }
+      section {
+        width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section>
+        <div class="title mt10">에어비앤비 둘러보기</div>
+
+        <div class="grid_box">
+          <div class="grid_item">
+            <div>
+              <img
+                src="https://a0.muscache.com/4ea/air/v2/pictures/8b7519ec-2c82-4c09-8233-fd4d2715bbf9.jpg?t=r:w375-h250-sfit,e:fjpg-c80"
+              />
+            </div>
+            <div class="content">숙소 및 부티크 호텔</div>
+          </div>
+          <div class="grid_item">
+            <div>
+              <img
+                src="https://a0.muscache.com/4ea/air/v2/pictures/a77ee672-e790-4362-8cc5-52bec1371ece.jpg?t=r:w375-h250-sfit,e:fjpg-c80"
+              />
+            </div>
+            <div class="content">트립</div>
+          </div>
+          <div class="grid_item">
+            <div>
+              <img
+                src="https://a0.muscache.com/4ea/air/v2/pictures/38f2bfd6-1f4d-46d7-babf-61657deef302.jpg?t=r:w375-h250-sfit,e:fjpg-c80"
+                alt=""
+              />
+            </div>
+            <div class="content">어드벤처</div>
+          </div>
+          <div class="grid_item">
+            <div>
+              <img
+                src="https://a0.muscache.com/4ea/air/v2/pictures/da2d8e97-90b7-409f-94ac-5ab0327c289b.jpg?t=r:w375-h250-sfit,e:fjpg-c80"
+                alt=""
+              />
+            </div>
+            <div class="content">레스토랑</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

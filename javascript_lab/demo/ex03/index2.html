@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. DOM에 내용 그리기</title>
+    <style>
+      #elementContainer {
+        border: 1px solid black;
+        padding: 5px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .section {
+        margin: 30px 0;
+        padding: 20px;
+        background: #f5f5f5;
+        border-radius: 5px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        background: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #0b7dda;
+      }
+      #display {
+        padding: 15px;
+        margin: 10px 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        min-height: 50px;
+      }
+      .new-element {
+        padding: 10px;
+        margin: 5px 0;
+        background: #4caf50;
+        color: white;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>2. DOM에 내용 그리기 (DOM Manipulation)</h1>
+
+    <div class="section">
+      <h2>value 사용 (Form 요소)</h2>
+      <input type="text" id="myInput" placeholder="입력하세요" />
+      <button onclick="setValue()">value로 값 설정</button>
+      <button onclick="getValue()">value 값 가져오기</button>
+      <p id="inputResult"></p>
+    </div>
+
+    <div class="section">
+      <h2>textContent</h2>
+      <button onclick="setTextContent()">textContent 사용</button>
+      <div id="textDisplay" class="display"></div>
+    </div>
+
+    <div class="section">
+      <h2>createElement, append, prepend</h2>
+      <button onclick="createAndAppend()">append로 추가</button>
+      <button onclick="createAndPrepend()">prepend로 추가</button>
+      <button onclick="clearElements()">초기화</button>
+      <div id="elementContainer" class="display"></div>
+    </div>
+
+    <div class="section">
+      <h2>before, after</h2>
+      <div
+        id="target"
+        style="
+          padding: 15px;
+          background: #ff9800;
+          color: white;
+          border-radius: 5px;
+        "
+      >
+        타겟 요소
+      </div>
+      <button onclick="addBefore()">before로 앞에 추가</button>
+      <button onclick="addAfter()">after로 뒤에 추가</button>
+      <button onclick="resetBeforeAfter()">초기화</button>
+    </div>
+
+    <div class="section">
+      <h2>setAttribute</h2>
+      <img id="myImage" />
+      <br /><button onclick="setImageAttr()">setAttribute로 이미지 설정</button>
+    </div>
+
+    <script>
+      // value 사용
+      function setValue() {
+        let dom = document.querySelector("#myInput");
+        dom.value = "hello";
+      }
+
+      function getValue() {
+        let dom = document.querySelector("#myInput");
+        let text = dom.value;
+        alert(text);
+      }
+
+      // textContent
+      function setTextContent() {
+        let dom = document.querySelector("#textDisplay");
+        // dom.innerHTML = "<h1>Hello</h1>";
+        dom.textContent = "<h1>Hello</h1>";
+      }
+
+      let num = 1;
+      // createElement, append, prepend
+      function createAndAppend() {
+        let dom = document.querySelector("#elementContainer");
+        let item = document.createElement("h1");
+        item.innerHTML = "Append " + num;
+        dom.append(item);
+        num++;
+      }
+
+      function createAndPrepend() {
+        let dom = document.querySelector("#elementContainer");
+        let item = document.createElement("h1");
+        item.innerHTML = "Prepend " + num;
+        dom.prepend(item);
+        num++;
+      }
+
+      function clearElements() {
+        let dom = document.querySelector("#elementContainer");
+        dom.innerHTML = "";
+      }
+
+      // before, after
+      function addBefore() {
+        let dom = document.querySelector("#target");
+        let item = document.createElement("h1");
+        item.innerHTML = "before " + num;
+        dom.before(item);
+        num++;
+      }
+
+      function addAfter() {
+        let dom = document.querySelector("#target");
+        let item = document.createElement("h1");
+        item.innerHTML = "after " + num;
+        dom.after(item);
+        num++;
+      }
+
+      function resetBeforeAfter() {
+        location.reload();
+      }
+
+      // setAttribute
+      function setImageAttr() {
+        let dom = document.querySelector("#myImage");
+        dom.setAttribute(
+          "src",
+          "https://i.pinimg.com/736x/2b/53/aa/2b53aa45b761b66b554cdf52270f0be9.jpg"
+        );
+        dom.setAttribute("width", "500px");
+        dom.setAttribute("height", "500px");
+      }
+    </script>
+  </body>
+</html>

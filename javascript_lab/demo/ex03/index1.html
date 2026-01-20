@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. DOM 찾기</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .box {
+        padding: 15px;
+        margin: 10px 0;
+        background: #f0f0f0;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #45a049;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 15px;
+        background: #e8f5e9;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>1. DOM 찾기 (DOM Selection)</h1>
+
+    <div id="myId" class="box">ID: myId인 요소</div>
+    <div class="myClass box">클래스: myClass인 요소 1</div>
+    <div class="myClass box">클래스: myClass인 요소 2</div>
+    <div class="myClass box">클래스: myClass인 요소 3</div>
+    <p class="box">태그: p인 요소</p>
+
+    <button onclick="testGetElementById()">getElementById</button>
+    <button onclick="testQuerySelector()">querySelector</button>
+    <button onclick="testQuerySelectorAll()">querySelectorAll</button>
+    <button onclick="testGetElementsByClassName()">
+      getElementsByClassName
+    </button>
+    <button onclick="testGetElementsByTagName()">getElementsByTagName</button>
+
+    <div id="result"></div>
+    <script>
+      let resultDom = document.getElementById("result");
+
+      function testGetElementById() {
+        // console.log("testGetElementById 클릭됨");
+        // alert("testGetElementById 클릭됨");
+        let dom1 = document.querySelector("#myId");
+        // console.log(dom1);
+        let text1 = dom1.innerHTML;
+        // console.log(text1);
+        resultDom.innerHTML = text1;
+      }
+
+      function testQuerySelector() {
+        // 클래스 : ".클래스명"
+        // 기본태그 : "태그명"
+        // 아이디 : "#클래스명"
+        let dom2 = document.querySelector("#myId");
+        let text2 = dom2.innerHTML;
+        resultDom.innerHTML = text2;
+      }
+
+      function testQuerySelectorAll() {
+        let domList = document.querySelectorAll(".myClass");
+        // console.log(domList);
+
+        let text = "";
+        for (let e of domList) {
+          text = text + e.innerHTML + "<br> ";
+        }
+        resultDom.innerHTML = text;
+      }
+
+      function testGetElementsByClassName() {
+        let domList = document.querySelectorAll(".box");
+        // console.log(domList);
+
+        let text = "";
+        for (let e of domList) {
+          text = text + e.innerHTML + "<br> ";
+        }
+        resultDom.innerHTML = text;
+      }
+
+      function testGetElementsByTagName() {
+        // 1. p태그 찾기 (한 건, 여러 건 return되는지 확인)
+        let domList = document.querySelectorAll("p");
+        // console.log(domList);
+
+        // 2. p태그 내부 글자를 찾아서, resultDOM 출력하기
+        let text = "";
+        for (let e of domList) {
+          text = text + e.innerHTML;
+        }
+        resultDom.innerHTML = text;
+      }
+    </script>
+  </body>
+</html>

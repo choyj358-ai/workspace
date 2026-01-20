@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 1000px;
+      }
+      header {
+        display: grid;
+        justify-content: center;
+        height: 500px;
+        background-image: url("./images/background.jpg");
+        background-size: 100% 100%;
+      }
+      .maina {
+        display: grid;
+        justify-content: center;
+      }
+      .title {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        font-size: 15px;
+        height: 40px;
+      }
+      .logo_box {
+        width: 40px;
+        height: 40px;
+      }
+      .logo_box > img {
+        width: 100%;
+        height: 100%;
+      }
+      .head_right {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+      }
+      .white_board {
+        display: grid;
+        justify-content: baseline;
+        background-color: white;
+        width: 400px;
+        height: 400px;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      .search_box {
+        display: grid;
+        justify-content: end;
+        align-items: center;
+      }
+      .search {
+        background-color: red;
+        width: 50px;
+        height: 30px;
+        color: white;
+        text-align: center;
+      }
+      .input {
+        width: 98%;
+      }
+      .four {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      .four_card {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        height: 50px;
+      }
+      .four_card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .four_text {
+        display: grid;
+        align-items: center;
+      }
+      .four_image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .recommand {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+      .rec_image {
+        height: 180px;
+      }
+      .rec_image img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      .s_title {
+        font-size: 10px;
+      }
+      .meet_image {
+        height: 300px;
+      }
+      .meet_image img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      .eight_box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      .eight {
+      }
+      .eight img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      .home_one {
+        color: grey;
+        font-size: 8px;
+      }
+      .home_two {
+      }
+      .home_three {
+        font-size: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div>
+          <div class="logo_box"><img src="./images/logo.png" \ /></div>
+        </div>
+        <div class="head_right">
+          <div>호스트가 되어보세요</div>
+          <div>도움말</div>
+          <div>회원가입</div>
+          <div>로그인</div>
+        </div>
+      </div>
+      <div>
+        <div class="white_board">
+          <div>특색 있는 숙소와 즐길거리를 예약하세요.</div>
+          <table border="1px">
+            <tr>
+              <td colspan="2">목적지</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input class="input" type="text" placeholder="모든 위치" />
+              </td>
+            </tr>
+            <tr>
+              <td>체크인</td>
+              <td>체크아웃</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="date" />
+              </td>
+              <td>
+                <input type="date" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">인원</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <select class="input" name="인원">
+                  <option value="인원">인원</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+          <div class="search_box">
+            <button class="search">검색</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div>
+        <div>에어비앤비 둘러보기</div>
+        <div class="four">
+          <div class="four_card">
+            <div><img src="./images/card1.jpg" /></div>
+            <div class="four_text">숙소 및 부티크 호텔</div>
+          </div>
+          <div class="four_card">
+            <div><img src="./images/card2.jpg" /></div>
+            <div class="four_text">트립</div>
+          </div>
+          <div class="four_card">
+            <div><img src="./images/card3.jpg" /></div>
+            <div class="four_text">어드벤처</div>
+          </div>
+          <div class="four_card">
+            <div><img src="./images/card4.jpg" /></div>
+            <div class="four_text">레스토랑</div>
+          </div>
+        </div>
+        <div class="four_image"><img src="./images/ad1.jpg" alt="" /></div>
+      </div>
+      <div>
+        <div>추천 여행지</div>
+        <div class="recommand">
+          <div class="rec_image">
+            <img src="./images/choo1.png" />
+          </div>
+          <div class="rec_image">
+            <img src="./images/choo2.png" />
+          </div>
+          <div class="rec_image">
+            <img src="./images/choo3.png" />
+          </div>
+          <div class="rec_image">
+            <img src="./images/choo4.png" />
+          </div>
+          <div class="rec_image">
+            <img src="./images/choo5.png" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>에어비앤비 플러스를 만나보세요!</div>
+          <div class="s_title">
+            퀄리티와 인테리어 디자인이 검증된 숙소 컬렉션
+          </div>
+        </div>
+        <div class="meet_image"><img src="./images/ad2.png" /></div>
+      </div>
+      <div>
+        <div>전 세계 숙소</div>
+        <div class="eight_box">
+          <div class="eight">
+            <div><img src="./images/home1.png" /></div>
+            <div class="home_one">오두막</div>
+            <div class="home_two">BALIAN</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home2.png" /></div>
+            <div class="home_one">키클라데스</div>
+            <div class="home_two">Unique</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home3.png" /></div>
+            <div class="home_one">성</div>
+            <div class="home_two">Tile House</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home4.png" /></div>
+            <div class="home_one">케이프타운</div>
+            <div class="home_two">Modern</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home5.png" /></div>
+            <div class="home_one">마드리드</div>
+            <div class="home_two">솔광장</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home6.png" /></div>
+            <div class="home_one">HUMAC</div>
+            <div class="home_two">Vacation</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home7.png" /></div>
+            <div class="home_one">마라케시</div>
+            <div class="home_two">Cozy</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+          <div class="eight">
+            <div><img src="./images/home8.png" /></div>
+            <div class="home_one">로스앤젤레스</div>
+            <div class="home_two">Amazing</div>
+            <div class="home_three">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

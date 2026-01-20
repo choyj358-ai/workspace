@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px, solid black;
+        padding: 5px;
+      }
+      main {
+        display: grid;
+        justify-content: center;
+      }
+      section {
+        width: 1200px;
+      }
+      .back_image {
+        background-image: url(./images/background.jpg);
+        background-size: 100% 100%;
+        height: 600px;
+      }
+      .head_title {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        color: white;
+        font-weight: 600;
+      }
+      .head_right {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        height: 40px;
+        font-size: 13px;
+        text-align: center;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+      .white_board {
+        background-color: white;
+        width: 380px;
+        height: 400px;
+        display: grid;
+        justify-content: baseline;
+        border-radius: 5px;
+      }
+      .search_bt {
+        display: grid;
+        justify-content: end;
+        height: 30px;
+      }
+      .search_bt button {
+        background-color: red;
+        color: white;
+      }
+      .reserve {
+        font-size: 30px;
+        font-weight: 600;
+        color: rgb(59, 59, 59);
+        height: 90px;
+      }
+      .small_title {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .input_td input {
+        width: 98%;
+      }
+      .select {
+        width: 100%;
+      }
+      .four {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        height: 70px;
+      }
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card_text {
+        display: grid;
+        align-items: center;
+      }
+      .add img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="back_image">
+          <div class="head_title">
+            <div class="logo"></div>
+            <div class="head_right">
+              <div>호스트가 되어보세요</div>
+              <div>도움말</div>
+              <div>회원가입</div>
+              <div>로그인</div>
+            </div>
+          </div>
+          <div>
+            <div class="white_board">
+              <div class="reserve">
+                특색 있는 숙소와 즐길 거리를 예약하세요.
+              </div>
+              <table class="tb_box" border="1">
+                <tr>
+                  <td class="small_title" colspan="2">목적지</td>
+                </tr>
+                <tr>
+                  <td class="input_td" colspan="2">
+                    <input type="text" placeholder="모든 위치" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="small_title">체크인</td>
+                  <td class="small_title">체크아웃</td>
+                </tr>
+                <tr>
+                  <td class="input_td"><input type="date" /></td>
+                  <td class="input_td"><input type="date" /></td>
+                </tr>
+                <tr>
+                  <td class="small_title" colspan="2">인원</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <select class="select" name="인원">
+                      <option value="1">인원</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+              <div class="search_bt"><button>검색</button></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          2
+          <div>에어비앤비 둘러보기</div>
+          <div class="four">
+            <div class="two">
+              <div class="card"><img src="./images/card1.jpg" /></div>
+              <div class="card_text">숙소 및 부티크 호텔</div>
+            </div>
+            <div class="two">
+              <div class="card"><img src="./images/card2.jpg" /></div>
+              <div class="card_text">트립</div>
+            </div>
+            <div class="two">
+              <div class="card"><img src="./images/card3.jpg" /></div>
+              <div class="card_text">어드벤처</div>
+            </div>
+            <div class="two">
+              <div class="card"><img src="./images/card4.jpg" /></div>
+              <div class="card_text">레스토랑</div>
+            </div>
+          </div>
+          <div class="add"><img src="./images/ad1.jpg" /></div>
+        </div>
+        <div>3</div>
+        <div>4</div>
+      </section>
+    </main>
+  </body>
+</html>

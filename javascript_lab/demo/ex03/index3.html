@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. 반복문을 활용한 DOM 제어</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .section {
+        margin: 30px 0;
+        padding: 20px;
+        background: #f5f5f5;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        background: #9c27b0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #7b1fa2;
+      }
+      .item {
+        padding: 15px;
+        margin: 10px 0;
+        background: white;
+        border-radius: 5px;
+        border-left: 4px solid #9c27b0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>3. 반복문을 활용한 DOM 제어 (Loop with DOM)</h1>
+
+    <div class="section">
+      <h2>예제1: 기존 데이터 처음에 뿌리기</h2>
+      <button onclick="displayOriginal()">기존 데이터 표시</button>
+      <div id="result1"></div>
+    </div>
+
+    <div class="section">
+      <h2>예제2: map으로 수정해서 뿌리기</h2>
+      <button onclick="displayWithMap()">map으로 수정해서 표시</button>
+      <div id="result2"></div>
+    </div>
+
+    <div class="section">
+      <h2>예제3: 전개연산자로 추가해서 뿌리기</h2>
+      <button onclick="displayWithSpread()">전개연산자로 추가해서 표시</button>
+      <div id="result3"></div>
+    </div>
+
+    <div class="section">
+      <h2>예제4: filter로 조건에 맞는 데이터 뿌리기</h2>
+      <button onclick="displayWithFilter()">
+        filter로 조건에 맞는 데이터 표시
+      </button>
+      <div id="result4"></div>
+    </div>
+
+    <script>
+      // 기존 데이터 컬렉션
+      const list = ["사과", "딸기", "바나나", "오렌지"];
+
+      // 예제1: 기존 데이터 처음에 뿌리기
+      function displayOriginal() {
+        // 1. result1 찾기
+        let dom = document.querySelector("#result1");
+        // 2. 기존 result1에 데이터 초기화하기
+        dom.innerHTML = "";
+        // 3. list만큼 for문 돌면서 -> div class="item" 만들어서 append 하기
+        list.forEach((i) => {
+          let myItem = document.createElement("div");
+          myItem.innerHTML = i;
+          myItem.setAttribute("class", "item");
+
+          dom.append(myItem);
+        });
+      }
+
+      // 예제2: map으로 수정해서 뿌리기
+      function displayWithMap() {
+        let dom = document.querySelector("#result2");
+        dom.innerHTML = "";
+        let newList = list.forEach((i) => {
+          let newList = document.createElement("div");
+          newList.innerHTML = "[수정] " + i;
+          newList.setAttribute("class", "item");
+
+          dom.append(newList);
+        });
+      }
+
+      // 예제3: 전개연산자로 추가해서 뿌리기
+      function displayWithSpread() {
+        let dom = document.querySelector("#result3");
+        dom.innerHTML = "";
+        let addList = [...list, "포도", "수박"];
+        addList.forEach((i) => {
+          let add = document.createElement("div");
+          add.innerHTML = i;
+          add.setAttribute("class", "item");
+
+          dom.append(add);
+        });
+      }
+
+      // 예제4: filter로 조건에 맞는 데이터 뿌리기 (글자길이 3 이상만!)
+      function displayWithFilter() {
+        let dom = document.querySelector("#result4");
+        dom.innerHTML = "";
+
+        let newList = list.filter((i) => i.length >= 3);
+
+        // let searchList = list.filter((i, index) => index == 2 || index == 3);
+
+        newList.forEach((item) => {
+          let search = document.createElement("div");
+          search.innerHTML = item;
+          search.setAttribute("class", "item");
+          dom.append(search);
+        });
+      }
+    </script>
+  </body>
+</html>

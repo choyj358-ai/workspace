@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>종합 실습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fafafa;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .search-box {
+        text-align: center;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      input {
+        padding: 12px;
+        width: 300px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+      }
+      button {
+        padding: 12px 25px;
+        margin: 5px;
+        cursor: pointer;
+        background: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #0b7dda;
+      }
+      button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .photo-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+      .photo-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .photo-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .photo-card .info {
+        padding: 15px;
+      }
+      .photo-card .title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      .loading {
+        text-align: center;
+        padding: 40px;
+        font-size: 18px;
+        color: #666;
+      }
+      .error {
+        padding: 20px;
+        background: #ffebee;
+        color: #c62828;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .empty {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+      }
+      .new_card {
+        width: 220px;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #ffffff;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        font-family: Arial, sans-serif;
+      }
+
+      .new_card_header {
+        height: 120px;
+        background: linear-gradient(135deg, #6f7ae0, #7b4bb7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .new_card_title {
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      .new_card_body {
+        padding: 14px;
+      }
+
+      .new_card_name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+
+      .new_card_desc {
+        font-size: 13px;
+        color: #444;
+        line-height: 1.4;
+      }
+
+      .new_card_label {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎨 종합 실습: 한글 검색 앱</h1>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="검색어를 입력하세요 (예: 사과, 딸기, 과일)"
+      />
+      <button onclick="searchItems()">검색</button>
+      <button onclick="clearResults()">초기화</button>
+    </div>
+
+    <div id="resultContainer">
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="" alt="" />
+          <div class="info">
+            <div class="title">사과</div>
+            <div>카테고리: 과일</div>
+            <div>빨간색 과일입니다</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="" alt="" />
+          <div class="info">
+            <div class="title">사과</div>
+            <div>카테고리: 과일</div>
+            <div>빨간색 과일입니다</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="" alt="" />
+          <div class="info">
+            <div class="title">사과</div>
+            <div>카테고리: 과일</div>
+            <div>빨간색 과일입니다</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="" alt="" />
+          <div class="info">
+            <div class="title">사과</div>
+            <div>카테고리: 과일</div>
+            <div>빨간색 과일입니다</div>
+          </div>
+        </div>
+
+        <div class="new_card">
+          <div class="new_card_header">
+            <span class="new_card_title">사과</span>
+          </div>
+
+          <div class="new_card_body">
+            <div class="new_card_name">사과</div>
+            <div class="new_card_desc">
+              <span class="new_card_label">카테고리 :</span> 과일<br />
+              빨간색 과일입니다
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="" alt="" />
+          <div class="info">
+            <div class="title">사과</div>
+            <div>카테고리: 과일</div>
+            <div>빨간색 과일입니다</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. DOM에서 요소 찾기
+      const searchInput = document.querySelector("#searchInput");
+      const resultContainer = document.querySelector("#resultContainer");
+
+      // 한글 데이터
+      const items = [
+        {
+          id: 1,
+          name: "사과",
+          category: "과일",
+          description: "빨간색 과일입니다",
+        },
+        {
+          id: 2,
+          name: "딸기",
+          category: "과일",
+          description: "달콤한 빨간 과일입니다",
+        },
+        {
+          id: 3,
+          name: "바나나",
+          category: "과일",
+          description: "노란색 과일입니다",
+        },
+        {
+          id: 4,
+          name: "오렌지",
+          category: "과일",
+          description: "주황색 과일입니다",
+        },
+        {
+          id: 5,
+          name: "포도",
+          category: "과일",
+          description: "보라색 과일입니다",
+        },
+        {
+          id: 6,
+          name: "수박",
+          category: "과일",
+          description: "여름 과일입니다",
+        },
+        {
+          id: 7,
+          name: "당근",
+          category: "채소",
+          description: "주황색 채소입니다",
+        },
+        {
+          id: 8,
+          name: "토마토",
+          category: "채소",
+          description: "빨간색 채소입니다",
+        },
+        {
+          id: 9,
+          name: "오이",
+          category: "채소",
+          description: "초록색 채소입니다",
+        },
+        {
+          id: 10,
+          name: "양파",
+          category: "채소",
+          description: "노란색 채소입니다",
+        },
+        {
+          id: 11,
+          name: "고구마",
+          category: "채소",
+          description: "주황색 채소입니다",
+        },
+        {
+          id: 12,
+          name: "배추",
+          category: "채소",
+          description: "초록색 채소입니다",
+        },
+      ];
+
+      // 검색
+      function searchItems() {
+        searchInput.innerHTML = "";
+        resultContainer.innerHTML = "";
+
+        let grid = document.createElement("div");
+        grid.setAttribute("class", "photo-grid");
+        resultContainer.append(grid);
+
+        let dom = document.querySelector("#searchInput");
+        let text = dom.value.trim();
+
+        let searchItemList = items.filter((i) => {
+          i.name == text;
+        });
+
+        searchItemList.forEach((i) => {
+          let card = document.createElement("div");
+          card.setAttribute("class", "photo-card");
+          grid.append(card);
+          let cardImg = document.createElement("img");
+          cardImg.innerHTML = i.name;
+          card.append(cardImg);
+
+          let info = document.createElement("div");
+          info.setAttribute("class", "info");
+          card.append(info);
+        });
+      }
+
+      // 초기화
+      function clearResults() {
+        location.reload();
+      }
+
+      // 페이지 로드 시 전체 데이터 표시
+      window.onload = () => {};
+    </script>
+  </body>
+</html>
